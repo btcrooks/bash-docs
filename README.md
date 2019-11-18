@@ -2,7 +2,6 @@
 
 ### Reading User Input
 To read input from a user, use the `read` command. There are two ways to utilize read:
-
 <br/>
 
 #### First Approach
@@ -17,7 +16,6 @@ echo "Hi, $VAR!"
 # > Your Answer: Hi, Brandon!
 ```
 *note: the `-n` flag prevents echo from creating a new line after printing the message. if you would like to print your message and have users answer on a new line, simply remove the flag*
-
 <br/>
 
 #### Second Apporach
@@ -30,7 +28,6 @@ echo "Hi, $VAR!"
 # > What is your name? Brandon
 # > Your Answer: Hi, Brandon!
 ```
-
 <br/>
 
 If for whatever reason we don't want to supply our own variable, bash captures the latest read value in the built in `$REPLY` variable.
@@ -42,7 +39,6 @@ echo "Hi, $REPLY!"
 # > What is your name? Brandon
 # > Your Answer: Hi, Brandon!
 ```
-
 <br/>
 
 #### Read Flags
@@ -65,3 +61,26 @@ printf "\n$PIN\n"
 # 12345
 ```
 We used `-p` to set a prompt, `-s` to suppress the input, `-n` to limit the number of inputted characters and finally using `PIN` as our variable to capture eveyrthing.
+
+---
+<br/>
+
+### String Formatting
+Using the `printf` command, we can insert a variable into a string and then format.  
+
+```sh
+declare -r VAR="Hi!"
+printf "%s\n" $VAR
+
+# Result
+# > Hi!
+```
+
+#### Format Specifiers
+| Specifier | Description |
+| -- | -- |
+| `%b` | String: Interprets escaped "\\n" characters. |
+| `%d` | Integer Specifier: Show integral values. |
+| `%f` | Floating Point Number: Used for output of floating point values |
+| `%s` | String: Ignores escaped "\\n" characters and reads them as part of the string. |
+| `%x` | Hexadecimal: Used for output of lowercase hexadecimal values for integers and for padding the output|
